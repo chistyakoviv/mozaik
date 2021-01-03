@@ -1,6 +1,6 @@
 import "reflect-metadata";
 import { container } from "tsyringe";
-import { Config } from './core/types';
+import Config from './core/interfaces/Config';
 
 export default class Mozaik {
     private config: Config;

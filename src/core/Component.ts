@@ -1,4 +1,4 @@
-import { State } from "./types";
+import State from "./interfaces/State";
 
 export default class Component {
     private el: HTMLElement;
@@ -9,12 +9,16 @@ export default class Component {
         this.el = el;
     }
 
+    setElement(el: HTMLElement) {
+        this.el = el;
+    }
+
     setState(state: State): void {
         Object.assign(this.state, state);
     }
 
-    getComponents(): Component[] {
-        return this.components;
+    getComponents(type: any = Component): Component[] {
+        return this.components.filter(c => c instanceof type);
     }
 
     setComponents(components: Component[]): void {
