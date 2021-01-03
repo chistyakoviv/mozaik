@@ -18,7 +18,7 @@ export default class Component {
     }
 
     getComponents(type: any = Component): Component[] {
-        return this.components.filter(c => c instanceof type);
+        return this.components.filter(component => component instanceof type);
     }
 
     setComponents(components: Component[]): void {
