@@ -1,5 +1,4 @@
-interface State {
+
+export default interface State {
     [key: string]: any
 };
-
-export default State;

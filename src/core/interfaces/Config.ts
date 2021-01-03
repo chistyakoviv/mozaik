@@ -1,5 +1,8 @@
+import Component from "../Component";
+import ComponentInterface from './ComponentInterface';
+
 interface Config {
-    providers: any[]
+    components?: {[key: string]: ComponentInterface}
 };
 
 export default Config;

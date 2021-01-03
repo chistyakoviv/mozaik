@@ -1,13 +1,10 @@
 import State from "./interfaces/State";
+import ComponentInterface from './interfaces/ComponentInterface'
 
-export default class Component {
-    private el: HTMLElement;
-    private state: State = {};
-    private components: Component[] = [];
-
-    constructor(el: HTMLElement) {
-        this.el = el;
-    }
+export default class Component implements ComponentInterface {
+    protected el?: HTMLElement;
+    protected state: State = {};
+    protected components: Component[] = [];
 
     setElement(el: HTMLElement) {
         this.el = el;
@@ -18,6 +15,9 @@ export default class Component {
     }
 
     getComponents(type: any = Component): Component[] {
+        if (type === Component)
+            return this.components;
+
         return this.components.filter(component => component instanceof type);
     }
 
