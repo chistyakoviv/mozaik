@@ -6,7 +6,7 @@ import ComponentFactory from './core/ComponentFactory';
 
 export * from './core/Container';
 
-export { Config };
+export  { Component };
 
 export default class Mozaik {
     private componentFactory: ComponentFactory;

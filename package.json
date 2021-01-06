@@ -10,12 +10,11 @@
     },
     "author": "Chistyakov Ilya",
     "license": "MIT",
-    "dependencies": {
+    "dependencies": {},
+    "devDependencies": {
         "reflect-metadata": "^0.1.13",
         "snabbdom": "^2.1.0",
-        "tsyringe": "^4.4.0"
-    },
-    "devDependencies": {
+        "tsyringe": "^4.4.0",
         "rollup": "^2.33.3",
         "rollup-plugin-node-resolve": "^5.2.0",
         "rollup-plugin-typescript": "^1.0.1",

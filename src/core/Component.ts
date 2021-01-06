@@ -1,7 +1,6 @@
 import State from "./interfaces/State";
-import ComponentInterface from './interfaces/ComponentInterface'
 
-export default class Component implements ComponentInterface {
+export default class Component {
     protected el?: HTMLElement;
     protected state: State = {};
     protected components: Component[] = [];

@@ -1,8 +1,4 @@
-import Component from "../Component";
-import ComponentInterface from './ComponentInterface';
 
-interface Config {
-    components?: {[key: string]: ComponentInterface}
+export default interface Config {
+    [key: string]: any
 };
-
-export default Config;
