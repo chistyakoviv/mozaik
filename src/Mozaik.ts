@@ -1,23 +1,27 @@
 import "reflect-metadata";
-import { container } from "./core/Container";
-import Config from './core/interfaces/Config';
+import { container, registry } from "./core/Container";
 import Component from './core/Component';
 import ComponentFactory from './core/ComponentFactory';
+// import  { Config } from './core/interfaces/Config';
+
+interface Config {
+    [key: string]: any
+};
 
 export * from './core/Container';
 
-export  { Component };
+export  { Component, ComponentFactory, Config };
 
+@registry([
+    { token: "ComponentFactory", useClass: ComponentFactory }
+])
 export default class Mozaik {
     private componentFactory: ComponentFactory;
 
     protected config: Config;
 
-    constructor(config: Config) {
+    constructor(config: Config = {}) {
         this.config = config;
-
-        container.register('ComponentFactory', { useClass: ComponentFactory });
-
         this.componentFactory = container.resolve('ComponentFactory');
     }
 
