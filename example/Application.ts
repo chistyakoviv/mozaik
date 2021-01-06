@@ -8,8 +8,10 @@ const config: Config = {
 class Application extends Mozaik {
     constructor(config: Config) {
         super(config);
+    }
 
-        this.init();
+    run(): void {
+        super.run();
     }
 }
 

@@ -1,18 +1,20 @@
 import { container } from './Container';
 import Component from './Component';
+import { singleton } from 'tsyringe';
 
+@singleton()
 export default class ComponentFactory {
-    static init(node: HTMLElement = document.body): void {
+    instantiate(node: HTMLElement = document.body): void {
         const nodes = Array.from(node.querySelectorAll('[data-widget]'));
 
         for (let node of nodes) {
             const name: string | null = node.getAttribute('data-widget');
             const type: string | null = node.getAttribute('data-type');
 
-            if (name === null) continue;
+            if (!name) continue;
 
             if (!type) {
-                ComponentFactory.create(name);
+                this.create(name);
                 return;
             }
             
@@ -20,7 +22,7 @@ export default class ComponentFactory {
         }
     }
 
-    static create(name: string): Component {
+    create(name: string): Component {
         return container.resolve(name);
     }
 };

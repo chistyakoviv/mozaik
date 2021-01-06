@@ -6,7 +6,7 @@ import { injectable, inject, registry } from '../../src/core/Container';
 class Header extends Component {
     private mapService: MapService;
 
-    constructor(mapService: MapService) {
+    constructor(@inject('MapService') mapService: MapService) {
         super();
 
         this.mapService = mapService;

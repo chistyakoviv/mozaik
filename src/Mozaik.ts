@@ -9,29 +9,23 @@ export * from './core/Container';
 export { Config };
 
 export default class Mozaik {
+    private componentFactory: ComponentFactory;
+
     protected config: Config;
 
     constructor(config: Config) {
         this.config = config;
+
+        container.register('ComponentFactory', { useClass: ComponentFactory });
+
+        this.componentFactory = container.resolve('factory');
     }
 
-    protected init(): void {
-        // this.register();
-        this.resolve();
-    }
-
-    private register(): void {
-        for (let key in this.config.components) {
-            const type = this.config.components[key];
-            container.register(key, { useClass: Component });
-        }
-    }
-
-    private resolve(): void {
-        ComponentFactory.init();
+    protected resolve(): void {
+        this.componentFactory.instantiate();
     }
 
     run(): void {
-
+        this.resolve();
     }
 };

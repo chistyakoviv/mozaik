@@ -1,11 +1,6 @@
-class MapService {
-    constructor() {
-
-    }
-
-    setMarker(x: number, y: number) {
-
-    }
+interface MapService {
+    setMarker(x: number, y: number): void;
+    getMarkers(): [];
 }
 
 export default MapService;
