@@ -18,7 +18,7 @@ export default class Mozaik {
 
         container.register('ComponentFactory', { useClass: ComponentFactory });
 
-        this.componentFactory = container.resolve('factory');
+        this.componentFactory = container.resolve('ComponentFactory');
     }
 
     protected resolve(): void {
