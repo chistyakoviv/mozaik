@@ -1989,7 +1989,7 @@ var Mozaik = /** @class */ (function () {
     function Mozaik(config) {
         this.config = config;
         instance.register('ComponentFactory', { useClass: ComponentFactory });
-        this.componentFactory = instance.resolve('factory');
+        this.componentFactory = instance.resolve('ComponentFactory');
     }
     Mozaik.prototype.resolve = function () {
         this.componentFactory.instantiate();
