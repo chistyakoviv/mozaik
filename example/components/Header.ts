@@ -1,15 +1,16 @@
 import Component from '../../src/core/Component';
 import MapService from '../services/MapService'
-import { injectable, inject, registry } from '../../src/core/Container';
+import { injectable, inject, container } from '../../src/core/Container';
+import { ElementTransformer, ElementStack } from '../../src/core/ComponentFactory';
+import { injectWithTransform } from '../../src/core/Container';
 
 @injectable()
 class Header extends Component {
-    private mapService: MapService;
-
-    constructor(@inject('MapService') mapService: MapService) {
-        super();
-
-        this.mapService = mapService;
+    constructor(
+        @injectWithTransform(ElementStack, ElementTransformer) el: Element,
+        @inject('MapService') private mapService: MapService
+    ) {
+        super(el);
     }
 };
 

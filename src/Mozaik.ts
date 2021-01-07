@@ -3,11 +3,7 @@ import { container } from "./core/Container";
 import Component from './core/Component';
 import ComponentFactory from './core/ComponentFactory';
 import registries from './core/config/registries';
-// import  { Config } from './core/interfaces/Config';
-
-interface Config {
-    [key: string]: any
-};
+import  { Config } from './core/interfaces/Config';
 
 export * from './core/Container';
 

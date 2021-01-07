@@ -1,9 +1,9 @@
 const path = require('path');
 
 module.exports = {
-    entry: './examples/app.js',
+    entry: './example/Application.ts',
     devServer: {
-        contentBase: path.resolve(__dirname, '../examples'),
+        contentBase: path.resolve(__dirname, '../example'),
         overlay: {
             warnings: true,
             errors: true

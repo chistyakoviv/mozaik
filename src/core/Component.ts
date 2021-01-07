@@ -1,11 +1,19 @@
 import State from "./interfaces/State";
+import { ElementTransformer, ElementStack } from './ComponentFactory';
+import { injectWithTransform } from './Container';
 
 export default class Component {
-    protected el?: HTMLElement;
+    protected el?: Element;
     protected state: State = {};
     protected components: Component[] = [];
 
-    setElement(el: HTMLElement) {
+    constructor(@injectWithTransform(ElementStack, ElementTransformer, null) el?: Element) {
+        this.el = el;
+
+        this.onInit();
+    }
+
+    setElement(el: Element) {
         this.el = el;
     }
 
@@ -24,6 +32,7 @@ export default class Component {
         this.components = components;
     }
 
+    onInit(): void {}
     onCreate(): void {}
     onDestroy(): void {}
 };

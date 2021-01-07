@@ -1,6 +1,7 @@
 import Mozaik from '../src/Mozaik';
 import { Config } from '../src/Mozaik'
 import './config/components';
+import './config/services';
 
 const config: Config = {
 };
